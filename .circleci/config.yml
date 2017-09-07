@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:14.04
+
+    branches:
+      only:
+        - master
+
+    steps:
+      - checkout
+
+      - run: command: sudo pip install awscli
+      
+      # Deploy production
+      - deploy:
+          command: aws s3 sync $CIRCLE_WORKING_DIRECTORY/BellMeadowsHOA s3://belmeadowshoa --delete
