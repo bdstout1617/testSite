@@ -20,26 +20,11 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: yarn install
-      - run: sudo pip install awscli
+      - run: pip install awscli
       
       # Deploy production
       - deploy:
           command: aws s3 sync ~/repo/BellMeadowsHOA s3://belmeadowshoa --delete
           
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: yarn test
 
 
