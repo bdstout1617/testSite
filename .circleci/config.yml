@@ -33,7 +33,7 @@ jobs:
       
       # Deploy production
       - deploy:
-          command: aws s3 sync $CIRCLE_WORKING_DIRECTORY/BellMeadowsHOA s3://belmeadowshoa --delete
+          command: aws s3 sync ~/repo/BellMeadowsHOA s3://belmeadowshoa --delete
           
       - save_cache:
           paths:
