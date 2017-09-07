@@ -28,7 +28,7 @@ jobs:
 
       - run: yarn install
       
-      - run: command: sudo pip install awscli
+      - run: sudo pip install awscli
       
       # Deploy production
       - deploy:
