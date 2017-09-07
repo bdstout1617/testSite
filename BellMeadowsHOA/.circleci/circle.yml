@@ -1,4 +1,11 @@
-
+version: 2
+jobs:
+   build:
+     docker:
+       - image: circleci/java:latest
+     steps:
+       - checkout
+       - run: echo "hello world"
 dependencies:
     override:
         - sudo pip install awscli
@@ -7,3 +14,4 @@ deployment:
     branch: master
     commands:
       - aws s3 sync /home/ubuntu/BellMeadowsHOA s3://belmeadowshoa --delete
+      
