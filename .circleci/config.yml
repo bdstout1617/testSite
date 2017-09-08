@@ -24,7 +24,7 @@ jobs:
       
       # Deploy production
       - deploy:
-          command: aws s3 sync ~/repo/BellMeadowsHOA/WebContent s3://raidenwulf.com --delete
+          command: aws s3 sync ~/repo/BellMeadowsHOA/WebContent s3://www.raidenwulf.com --delete
           
 
 
