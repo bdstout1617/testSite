@@ -20,7 +20,8 @@
     <script>
     $(document).ready(function(){
     	console.log("blarg");
-    	console.log("User is signed in? ["+gapi.auth2.GoogleAuth.isSignedIn.get()+"]");
+    	var auth2 = gapi.auth2.getAuthInstance();
+    	console.log("User is signed in? ["+auth2.isSignedIn.get()+"]");
     	
     });
     </script>
