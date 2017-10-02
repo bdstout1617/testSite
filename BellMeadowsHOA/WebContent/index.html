@@ -13,6 +13,7 @@
 	<p>This was added with eclipse only by commiting to master. </p>
 	<p>Ok fixed. this works as intended. good luck</p>
 	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+    	<a href="#" onclick="signOut();">Sign out</a>
 	<a href="authenticatedSite.html">Click here to attempt to go to authenticated location. </a>
 	
     <!-- Optional JavaScript -->
@@ -31,6 +32,13 @@
 		console.log('Image URL: ' + profile.getImageUrl());
 		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     }
+	  
+    function signOut() {
+	    var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+	      console.log('User signed out.');
+	    });
+	  }
     </script>
   </body>
 </html>
