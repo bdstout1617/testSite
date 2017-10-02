@@ -11,6 +11,7 @@
   <body>
     <h1>Only get here if authenticated!</h1>
 	
+    	<a href="#" onclick="signOut();">Sign out</a>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -19,11 +20,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script>
     $(document).ready(function(){
-    	console.log("blarg");
-    	var auth2 = gapi.auth2.getAuthInstance();
-    	console.log("User is signed in? ["+auth2.isSignedIn.get()+"]");
+
     	
-    });
+    });    	  
+    function signOut() {
+	    var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+	      console.log('User signed out.');
+	    });
+	  }
     </script>
   </body>
 </html>
